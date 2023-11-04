@@ -1,2 +1,0 @@
-xcopy "G:\Desktop\Minecraft Modding\Bedrock\_____Public Addons_____\Minecraft Zombies\Craft Ops I\resource" "C:\Users\xxenisplayzzxx\AppData\Local\Packages\Microsoft.MinecraftUWP_8wekyb3d8bbwe\LocalState\games\com.mojang\development_resource_packs\craftops1" /s /y
-xcopy "G:\Desktop\Minecraft Modding\Bedrock\_____Public Addons_____\Minecraft Zombies\Craft Ops I\behavior" "C:\Users\xxenisplayzzxx\AppData\Local\Packages\Microsoft.MinecraftUWP_8wekyb3d8bbwe\LocalState\games\com.mojang\development_behavior_packs\craftops1" /s /y

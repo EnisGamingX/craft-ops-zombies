@@ -1,4 +1,7 @@
+package.json
 package-lock.json
-node_modules/
-releases/
-assets/
+/node_modules
+/releases
+/assets
+/build
+/.regolith
