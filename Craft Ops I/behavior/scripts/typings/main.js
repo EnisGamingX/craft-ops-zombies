@@ -1,0 +1,1 @@
+import './entityPrototypes.js';

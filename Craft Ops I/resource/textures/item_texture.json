@@ -1,0 +1,23 @@
+{
+    "resource_pack_name": "Craft Ops Zombies I",
+    "texture_data": {
+        "default_wood_hoe": {
+            "textures": "textures/default/wood_hoe"
+        },
+        "default_stone_hoe": {
+            "textures": "textures/default/stone_hoe"
+        },
+        "default_gold_hoe": {
+            "textures": "textures/default/gold_hoe"
+        },
+        "default_iron_hoe": {
+            "textures": "textures/default/iron_hoe"
+        },
+        "default_diamond_hoe": {
+            "textures": "textures/default/diamond_hoe"
+        },
+        "default_netherite_hoe": {
+            "textures": "textures/default/netherite_hoe"
+        }
+    }
+}

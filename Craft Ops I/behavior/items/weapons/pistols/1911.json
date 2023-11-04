@@ -1,0 +1,18 @@
+{
+    "format_version": "1.16.100",
+    "minecraft:item": {
+        "description": {
+            "identifier": "pistol:1911",
+            "category": "Equipment"
+        },
+        "components": {
+            "minecraft:max_stack_size": 1,
+            "minecraft:display_name": {
+                "value": "§21911"
+            },
+            "minecraft:icon": {
+                "texture": "default_stone_hoe"
+            }
+        }
+    }
+}
