@@ -129,7 +129,36 @@
                             }
                         },
                         {
-                            "actionbar_message_default_5": {
+                            "actionbar_message_center_5": {
+                                "type": "image",
+                                "texture": "textures/ui/hud_tip_text_background",
+                                "size": [
+                                    "100%c + 12px",
+                                    "100%c + 5px"
+                                ],
+                                "offset": [
+                                    0,
+                                    "50%"
+                                ],
+                                "alpha": 0.5,
+                                "anchor_from": "center",
+                                "anchor_to": "center",
+                                "layer": 2,
+                                "controls": [
+                                    {
+                                        "actionbar_message": {
+                                            "type": "label",
+                                            "localize": false,
+                                            "color": "$tool_tip_text",
+                                            "text_alignment": "right",
+                                            "text": "((%.660s * $actionbar) - (%.560s * $actionbar) - ($actionbar - %.660 * $actionbar))" // 5
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "actionbar_message_default_6": {
                                 "type": "image",
                                 "texture": "textures/ui/hud_tip_text_background",
                                 "size": [
@@ -151,7 +180,7 @@
                                             "localize": false,
                                             "color": "$tool_tip_text",
                                             "text_alignment": "right",
-                                            "text": "(($actionbar) - (%.560s * $actionbar))" // 5
+                                            "text": "(($actionbar) - (%.660s * $actionbar))" // 6
                                         }
                                     }
                                 ]

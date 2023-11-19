@@ -3,6 +3,7 @@ export const actionbarSplit = Object.freeze({
     topRight: 40,
     bottomLeft: 80,
     bottomRight: 400,
+    center: 100,
     default: -1,
 });
 
