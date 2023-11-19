@@ -4,5 +4,7 @@
 /node_modules
 /packs
 /releases
+/builds
+release.bat
 package-lock.json
 /Craft Ops I/behavior/scripts/*
