@@ -1,0 +1,27 @@
+{
+    "$1_color_format": [ 0.757, 0.173, 0.671 ], // Player 1
+    "$2_color_format": [ 0.510, 0.114, 0.451 ], // Player 1 Points
+
+    "$3_color_format": [ 0.137, 0.784, 0.808 ], // Player 2
+    "$4_color_format": [ 0.075, 0.431, 0.439 ], // Player 2 Points
+
+    "$5_color_format": [ 0.769, 0.000, 0.035 ], // Player 3
+    "$6_color_format": [ 0.447, 0.000, 0.020 ], // Player 3 Points
+
+    "$7_color_format": [ 0.969, 0.000, 0.420 ], // Player 4
+    "$8_color_format": [ 0.537, 0.000, 0.239 ], // Player 4 Points
+
+    "$9_color_format": [ 0.231, 0.129, 1.000 ], // Player 5
+    "$0_color_format": [ 0.137, 0.075, 0.600 ], // Player 5 Points
+    
+    "$e_color_format": [ 1.000, 0.482, 0.133 ], // Player 6
+    "$a_color_format": [ 0.737, 0.282, 0.000 ], // Player 6 Points
+
+    "$d_color_format": [ 0.969, 0.910, 0.094 ], // Player 7
+    "$g_color_format": [ 0.769, 0.722, 0.075 ], // Player 7 Points
+
+    "$c_color_format": [ 0.369, 0.769, 0.000 ], // Player 8
+    "$b_color_format": [ 0.231, 0.478, 0.000 ], // Player 8 Points
+
+    "$n_color_format": [ 1.000, 0.286, 0.325 ] // Main Color
+}

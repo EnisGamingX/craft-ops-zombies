@@ -1,0 +1,55 @@
+import * as mc from "@minecraft/server";
+import type * as vd from "@minecraft/vanilla-data";
+
+export type ItemComponents = {
+    "minecraft:cooldown": mc.ItemCooldownComponent;
+    cooldown: mc.ItemCooldownComponent;
+    "minecraft:durability": mc.ItemDurabilityComponent;
+    durability: mc.ItemDurabilityComponent;
+    "minecraft:enchantments": mc.ItemEnchantsComponent;
+    enchantments: mc.ItemEnchantsComponent;
+    "minecraft:food": mc.ItemFoodComponent;
+    food: mc.ItemFoodComponent;
+    [key: string]: any;
+};
+
+export type CEnchantmentTypes = {
+    aqua_affinity: mc.Enchantment;
+    bane_of_arthropods: mc.Enchantment;
+    binding: mc.Enchantment;
+    blast_protection: mc.Enchantment;
+    channeling: mc.Enchantment;
+    depth_strider: mc.Enchantment;
+    efficiency: mc.Enchantment;
+    feather_falling: mc.Enchantment;
+    fire_aspect: mc.Enchantment;
+    fire_protection: mc.Enchantment;
+    flame: mc.Enchantment;
+    fortune: mc.Enchantment;
+    frost_walker: mc.Enchantment;
+    impaling: mc.Enchantment;
+    infinity: mc.Enchantment;
+    knockback: mc.Enchantment;
+    looting: mc.Enchantment;
+    loyalty: mc.Enchantment;
+    luck_of_the_sea: mc.Enchantment;
+    lure: mc.Enchantment;
+    mending: mc.Enchantment;
+    multishot: mc.Enchantment;
+    piercing: mc.Enchantment;
+    power: mc.Enchantment;
+    projectile_protection: mc.Enchantment;
+    protection: mc.Enchantment;
+    punch: mc.Enchantment;
+    quick_charge: mc.Enchantment;
+    respiration: mc.Enchantment;
+    riptide: mc.Enchantment;
+    sharpness: mc.Enchantment;
+    silk_touch: mc.Enchantment;
+    smite: mc.Enchantment;
+    soul_speed: mc.Enchantment;
+    swift_sneak: mc.Enchantment;
+    thorns: mc.Enchantment;
+    unbreaking: mc.Enchantment;
+    vanishing: mc.Enchantment;
+};

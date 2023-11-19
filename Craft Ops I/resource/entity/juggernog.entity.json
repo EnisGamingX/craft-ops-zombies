@@ -1,0 +1,18 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "zm:juggernog",
+			"materials": {
+				"default": "entity_alphatest"
+			},
+			"textures": {
+				"default": "textures/entity/juggernog"
+			},
+			"geometry": {
+				"default": "geometry.juggernog"
+			},
+			"render_controllers": ["controller.render.default"]
+		}
+	}
+}

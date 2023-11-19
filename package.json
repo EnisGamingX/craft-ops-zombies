@@ -1,0 +1,25 @@
+{
+  "name": "craft-ops-zombies",
+  "description": "This is a Project for Minecraft Bedrock Edition to make a 'Call of Duty: Black Ops Zombies' like Game in Minecraft",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc --build",
+    "watch": "regolith watch"
+  },
+  "keywords": [
+    "Minecraft-Zombies",
+    "Zombies"
+  ],
+  "author": "iEnis",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@minecraft/server": "^1.7.0-beta.1.20.40-stable",
+    "@minecraft/server-gametest": "^1.0.0-beta.1.20.40-stable",
+    "@minecraft/server-ui": "^1.2.0-beta.1.20.40-stable",
+    "@minecraft/vanilla-data": "^1.20.40",
+    "@types/node": "^20.8.10",
+    "typescript": "^5.2.2",
+    "uuid": "^9.0.1"
+  }
+}

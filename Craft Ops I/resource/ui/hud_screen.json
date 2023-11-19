@@ -1,90 +1,165 @@
 {
-    "hud_title_text": {
-        "type": "panel",
+    "namespace": "hud",
+    "hud_actionbar_text": {
+        "texture": "textures/ui/blank",
+        "anchor_from": "center",
+        "anchor_to": "center",
         "size": [
-            "100%cm",
-            "100%c"
+            "100%",
+            "100%"
         ],
-        "anchor_from": "bottom_right",
-        "anchor_to": "bottom_right",
         "offset": [
-            -15,
-            -15
+            0,
+            0
         ],
-        "alpha": 0.5,
         "controls": [
             {
-                "sidebar": {
+                "actionbar_text": {
                     "type": "panel",
+                    "anchor_from": "center",
+                    "anchor_to": "center",
                     "size": [
-                        "100%c",
-                        "100%c"
+                        "100%",
+                        "100%"
                     ],
                     "offset": [
                         0,
                         0
-                    ]
-                }
-            },
-            {
-                "title_background": {
-                    "type": "image",
-                    "alpha": 0.0,
-                    "size": [
-                        "100%cm",
-                        "100%c"
                     ],
-                    "anchor_from": "top_right",
-                    "anchor_to": "top_right",
-                    "texture": "textures/ui/hud_tip_text_background",
+                    "$actionbar": "$actionbar_text",
                     "controls": [
                         {
-                            "title": {
-                                "type": "label",
-                                "text": "$title_text",
+                            "actionbar_message_top_left_1": {
+                                "type": "image",
+                                "texture": "textures/ui/blank",
+                                "size": [
+                                    "100%c + 12px",
+                                    "100%c + 5px"
+                                ],
+                                "alpha": 0.5,
+                                "anchor_from": "top_left",
+                                "anchor_to": "top_left",
+                                "layer": 2,
+                                "controls": [
+                                    {
+                                        "actionbar_message": {
+                                            "type": "label",
+                                            "localize": false,
+                                            "color": "$tool_tip_text",
+                                            "text_alignment": "left",
+                                            "text": "(%.40s * $actionbar)" // 1
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "actionbar_message_top_right_2": {
+                                "type": "image",
+                                "texture": "textures/ui/blank",
+                                "size": [
+                                    "100%c + 12px",
+                                    "100%c + 5px"
+                                ],
+                                "alpha": 0.5,
+                                "anchor_from": "top_right",
+                                "anchor_to": "top_right",
+                                "layer": 2,
+                                "controls": [
+                                    {
+                                        "actionbar_message": {
+                                            "type": "label",
+                                            "localize": false,
+                                            "color": "$tool_tip_text",
+                                            "text_alignment": "right",
+                                            "text": "(%.80s * $actionbar) - (%.40s * $actionbar) - ($actionbar - %.80 * $actionbar))" // 2
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "actionbar_message_bottom_left_3": {
+                                "type": "image",
+                                "texture": "textures/ui/blank",
+                                "size": [
+                                    "100%c + 12px",
+                                    "100%c + 5px"
+                                ],
+                                "alpha": 0.5,
+                                "anchor_from": "bottom_left",
+                                "anchor_to": "bottom_left",
+                                "layer": 2,
+                                "controls": [
+                                    {
+                                        "actionbar_message": {
+                                            "type": "label",
+                                            "localize": false,
+                                            "color": "$tool_tip_text",
+                                            "text_alignment": "left",
+                                            "text": "((%.160s * $actionbar) - (%.80s * $actionbar) - ($actionbar - %.160 * $actionbar))" // 3
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "actionbar_message_bottom_right_4": {
+                                "type": "image",
+                                "texture": "textures/ui/blank",
+                                "size": [
+                                    "100%c + 12px",
+                                    "100%c + 5px"
+                                ],
+                                "alpha": 0.5,
+                                "anchor_from": "bottom_right",
+                                "anchor_to": "bottom_right",
+                                "layer": 2,
+                                "controls": [
+                                    {
+                                        "actionbar_message": {
+                                            "type": "label",
+                                            "localize": false,
+                                            "color": "$tool_tip_text",
+                                            "text_alignment": "right",
+                                            "text": "((%.560s * $actionbar) - (%.160s * $actionbar) - ($actionbar - %.560 * $actionbar))" // 4
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "actionbar_message_default_5": {
+                                "type": "image",
+                                "texture": "textures/ui/hud_tip_text_background",
+                                "size": [
+                                    "100%c + 12px",
+                                    "100%c + 5px"
+                                ],
+                                "offset": [
+                                    0,
+                                    "50%-68px"
+                                ],
+                                "alpha": 0.5,
                                 "anchor_from": "center",
                                 "anchor_to": "center",
-                                "color": "$tool_tip_text",
-                                "text_alignment": "left",
-                                "layer": 1,
-                                "localize": false,
-                                "font_size": "medium",
-                                "alpha": 2.0
+                                "layer": 2,
+                                "controls": [
+                                    {
+                                        "actionbar_message": {
+                                            "type": "label",
+                                            "localize": false,
+                                            "color": "$tool_tip_text",
+                                            "text_alignment": "right",
+                                            "text": "(($actionbar) - (%.560s * $actionbar))" // 5
+                                        }
+                                    }
+                                ]
                             }
                         }
                     ]
                 }
             }
         ]
-    },
-    "hud_actionbar_text": {
-		"type": "image",
-		"size": [
-			"100%c + 12px",
-			"100%c + 5px"
-		],
-		"anchor_from": "bottom_left",
-		"anchor_to": "bottom_left",
-		"offset": [
-			5,
-			-10
-		],
-		"texture": "textures/ui/hud_tip_text_background",
-		"alpha": 0.0,
-		"controls": [
-			{
-				"actionbar_message": {
-					"type": "label",
-					"anchor_from": "top_left",
-					"anchor_to": "top_left",
-					"color": "$tool_tip_text",
-					"layer": 1,
-					"text": "$actionbar_text",
-					"localize": false,
-					"text_alignment": "right",
-					"alpha": 2
-				}
-			}
-		]
-	}
+    }
 }

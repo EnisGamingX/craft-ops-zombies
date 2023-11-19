@@ -1,0 +1,28 @@
+{
+  "compileOnSave": true,
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "ES2022",
+    "rootDir": "./Craft Ops I/source",
+    "outDir": "./Craft Ops I/behavior/scripts/",
+    "moduleResolution": "Node",
+    "paths": {
+      "@minecraft/server": [
+        "./node_modules/@minecraft/server"
+      ],
+      "@minecraft/server-ui": [
+        "./node_modules/@minecraft/server-ui"
+      ],
+      "@minecraft/server-gametest": [
+        "./node_modules/@minecraft/server-gametest"
+      ]
+    },
+    "allowJs": true,
+    "declaration": false,
+    "sourceMap": false,
+    "removeComments": true,
+    "forceConsistentCasingInFileNames": false,
+    "noImplicitAny": false,
+    "skipLibCheck": false
+  }
+}

@@ -1,7 +1,8 @@
-package.json
-package-lock.json
-/node_modules
-/releases
+/.regolith
 /assets
 /build
-/.regolith
+/node_modules
+/packs
+/releases
+package-lock.json
+/Craft Ops I/behavior/scripts/*

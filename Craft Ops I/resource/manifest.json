@@ -2,23 +2,46 @@
 	"format_version": 2,
 	"header": {
 		"name": "§cCraft Ops - §2Zombies I",
-        "description": "§cMade by iEnis#0244",
-		"min_engine_version": [ 1, 19, 70 ],
+		"description": "§cMade by iEnis#0244",
+		"min_engine_version": [
+			1,
+			20,
+			40
+		],
 		"uuid": "218af197-360b-4f7e-be17-61b4edc01a26",
-		"version": [ 1, 0, 1 ]
+		"version": [
+			1,
+			0,
+			1
+		]
+	},
+	"metadata": {
+		"authors": [
+			"iEnis"
+		],
+		"license": "Apache-2.0",
+		"url": "https://github.com/EnisGamingX/craft-ops-zombies"
 	},
 	"modules": [
 		{
-            "description": "Resource Module",
+			"description": "Resource Module",
 			"type": "resources",
 			"uuid": "a2336643-65c6-4e6d-8abf-cb250503b344",
-			"version": [ 1, 0, 0 ]
+			"version": [
+				1,
+				0,
+				0
+			]
 		}
 	],
 	"dependencies": [
 		{
 			"uuid": "e632ce0d-e0d3-4584-a912-ae6b6142ea5c",
-			"version": [ 1, 0, 1 ]
+			"version": [
+				1,
+				0,
+				1
+			]
 		}
 	]
 }
