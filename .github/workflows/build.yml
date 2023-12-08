@@ -1,0 +1,57 @@
+name: Create Release
+
+on:
+    push:
+      branches:
+        - main
+
+jobs:
+    create_release:
+        runs-on: ubuntu-latest
+        permissions: write-all
+
+        steps:
+            - name: Checkout Code
+              uses: actions/checkout@v2
+
+            - name: Setup Node.js
+              uses: actions/setup-node@v3
+              with:
+                node-version: "16"
+
+            - name: Install dependencies
+              run: npm install
+
+            - name: Check Version and Create Release
+              id: check_and_create_release
+              run: |
+                VERSION=$(jq -r .version version.json)
+                if [[ $VERSION == *"-dev" ]]; then
+                  echo "Skipping release creation for -dev version."
+                  echo "::set-output name=release_created::false"
+                elif [[ $VERSION == *"-pre" || $VERSION == *"-alpha" || $VERSION == *"-beta" ]]; then
+                  echo "Creating prerelease."
+                  echo "::set-output name=prerelease::true"
+                else
+                  echo "Creating regular release."
+                fi
+              env:
+                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        
+            - name: Set Release Description
+              id: set_release_description
+              run: |
+                cat ./description.md
+              env:
+                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        
+            - name: Create Release
+              if: steps.check_and_create_release.outputs.release_created != 'false'
+              uses: softprops/action-gh-release@v1
+              with:
+                files: ./latest/*
+                prerelease: ${{ steps.check_and_create_release.outputs.prerelease }}
+                body: ${{ steps.set_release_description.outputs.stdout }}
+              env:
+                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        

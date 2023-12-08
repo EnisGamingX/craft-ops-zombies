@@ -1,6 +1,24 @@
 {
     "namespace": "hud",
     "hud_actionbar_text": {
+        "$tl|default": 40, "$tr|default": 40,
+        "$bl|default": 80, "$br|default": 400,
+        "$cm|default": 200,
+        //
+        "$c_tl|default": "%.$tls", "$c_tr|default": "%.($tl + $tr)s",
+        "$c_bl|default": "%.($tl + $tr + $bl)s", "$c_br|default": "%.($tl + $tr + $bl + $br)s",
+        "$c_c|default": "%.($tl + $tr + $bl + $br + $cm)s",
+        //
+        "$actionbar|default": "$actionbar_text",
+        //
+        "$top_left|default": "($c_tl * $actionbar)",
+        "$top_right|default": "($c_tr * $actionbar) - ($c_tl * $actionbar) - ($actionbar - $c_tr * $actionbar))",
+        "$bottom_right|default": "(($c_bl * $actionbar) - ($c_tr * $actionbar) - ($actionbar - $c_bl * $actionbar))",
+        "$bottom_left|default": "(($c_br * $actionbar) - ($c_bl * $actionbar) - ($actionbar - $c_br * $actionbar))",
+        //
+        "$center|default": "(($c_c * $actionbar) - ($c_br * $actionbar) - ($actionbar - $c_c * $actionbar))",
+        "$rest|default": "(($actionbar) - ($c_c * $actionbar))",
+        //
         "texture": "textures/ui/blank",
         "anchor_from": "center",
         "anchor_to": "center",
@@ -26,7 +44,6 @@
                         0,
                         0
                     ],
-                    "$actionbar": "$actionbar_text",
                     "controls": [
                         {
                             "actionbar_message_top_left_1": {
@@ -47,7 +64,7 @@
                                             "localize": false,
                                             "color": "$tool_tip_text",
                                             "text_alignment": "left",
-                                            "text": "(%.40s * $actionbar)" // 1
+                                            "text": "$top_left" // 1
                                         }
                                     }
                                 ]
@@ -72,7 +89,7 @@
                                             "localize": false,
                                             "color": "$tool_tip_text",
                                             "text_alignment": "right",
-                                            "text": "(%.80s * $actionbar) - (%.40s * $actionbar) - ($actionbar - %.80 * $actionbar))" // 2
+                                            "text": "$top_right" // 2
                                         }
                                     }
                                 ]
@@ -97,7 +114,7 @@
                                             "localize": false,
                                             "color": "$tool_tip_text",
                                             "text_alignment": "left",
-                                            "text": "((%.160s * $actionbar) - (%.80s * $actionbar) - ($actionbar - %.160 * $actionbar))" // 3
+                                            "text": "$bottom_left" // 3
                                         }
                                     }
                                 ]
@@ -122,7 +139,7 @@
                                             "localize": false,
                                             "color": "$tool_tip_text",
                                             "text_alignment": "right",
-                                            "text": "((%.560s * $actionbar) - (%.160s * $actionbar) - ($actionbar - %.560 * $actionbar))" // 4
+                                            "text": "$bottom_right" // 4
                                         }
                                     }
                                 ]
@@ -151,7 +168,7 @@
                                             "localize": false,
                                             "color": "$tool_tip_text",
                                             "text_alignment": "right",
-                                            "text": "((%.660s * $actionbar) - (%.560s * $actionbar) - ($actionbar - %.660 * $actionbar))" // 5
+                                            "text": "$center" // 5
                                         }
                                     }
                                 ]
@@ -180,7 +197,7 @@
                                             "localize": false,
                                             "color": "$tool_tip_text",
                                             "text_alignment": "right",
-                                            "text": "(($actionbar) - (%.660s * $actionbar))" // 6
+                                            "text": "$rest" // 6
                                         }
                                     }
                                 ]

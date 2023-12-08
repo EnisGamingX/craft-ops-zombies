@@ -1,10 +1,12 @@
 /.regolith
 /assets
 /build
-/node_modules
-/packs
-/releases
 /builds
-release.bat
-package-lock.json
+config.json
 /Craft Ops I/behavior/scripts/*
+/node_modules
+package-lock.json
+/packs
+.prettierrc
+/releases
+/src

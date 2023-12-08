@@ -17,12 +17,17 @@
         "./node_modules/@minecraft/server-gametest"
       ]
     },
-    "allowJs": true,
+    "lib": [
+      "DOM",
+      "ES2020",
+    ],
+    "allowJs": false,
     "declaration": false,
     "sourceMap": false,
     "removeComments": true,
     "forceConsistentCasingInFileNames": false,
     "noImplicitAny": false,
-    "skipLibCheck": false
-  }
+    "skipLibCheck": false,
+    "strict": false
+  },
 }

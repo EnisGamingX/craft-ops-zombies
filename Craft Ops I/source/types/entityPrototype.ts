@@ -54,11 +54,11 @@ Object.defineProperty(mc.Player.prototype, "zm", {
                 }
             },
 
-            get inGame(): boolean {
-                return Boolean(player.getDynamicProperty("inGame")) ?? false;
+            getInGame(id: string): boolean {
+                return Boolean(mc.world.getDynamicProperty(`${id}.inGame`)) ?? false;
             },
-            set inGame(value: boolean) {
-                player.setDynamicProperty("inGame", value);
+            setInGame(id: string, value: boolean) {
+                player.setDynamicProperty(`§{id}.inGame`, value);
             },
 
             get isAlive(): boolean {

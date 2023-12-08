@@ -1,5 +1,4 @@
 import "./types/main.js";
-
 import { system, world } from "@minecraft/server";
 
 system.beforeEvents.watchdogTerminate.subscribe((data) => {
@@ -9,6 +8,8 @@ system.beforeEvents.watchdogTerminate.subscribe((data) => {
         player.sendMessage(`Server tried to crash:\n${data.terminateReason}`);
     }
 });
+
+import "./modules/runState";
 
 // import "./events/initializePlayer.js";
 
