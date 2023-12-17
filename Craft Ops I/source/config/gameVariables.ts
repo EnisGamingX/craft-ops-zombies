@@ -1,1 +1,1 @@
-export default const gameVars = {}
+export default {}

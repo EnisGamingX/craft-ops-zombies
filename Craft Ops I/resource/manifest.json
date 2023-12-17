@@ -5,14 +5,14 @@
         "description": "§cMade by iEnis#0244",
         "min_engine_version": [
             1,
-            20,
-            40
+            19,
+            0
         ],
-        "uuid": "218af197-360b-4f7e-be17-61b4edc01a26",
+        "uuid": "218af197-360b-4f7e-be17-61b4edc01a27",
         "version": [
-            "0",
-            "0",
-            "26"
+            0,
+            0,
+            27
         ]
     },
     "metadata": {
@@ -36,11 +36,11 @@
     ],
     "dependencies": [
         {
-            "uuid": "e632ce0d-e0d3-4584-a912-ae6b6142ea5c",
+            "uuid": "e632ce0d-e0d3-4584-a912-ae6b6142ea5d",
             "version": [
-                1,
                 0,
-                1
+                0,
+                27
             ]
         }
     ]

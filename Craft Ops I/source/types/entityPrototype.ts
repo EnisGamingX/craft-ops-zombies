@@ -152,25 +152,31 @@ interface zmEntity {
 }
 
 declare module "@minecraft/server" {
+    interface World {
+        getDynamicProperty<T extends keyof WorldDynamicProperties>(identifier: T): WorldDynamicProperties[T];
+        setDynamicProperty<T extends keyof WorldDynamicProperties>(identifier: T, value?: WorldDynamicProperties[T]): WorldDynamicProperties[T];
+    }
     interface Player {
         zm: zmPlayer;
     }
     interface Entity {
+        getDynamicProperty<T extends keyof EntityDynamicProperties>(identifier: T): EntityDynamicProperties[T];
+        setDynamicProperty<T extends keyof EntityDynamicProperties>(identifier: T, value?: EntityDynamicProperties[T]): EntityDynamicProperties[T];
         zm: zmEntity;
-        getComponent<T extends keyof EntityComponents>(componentId: T): EntityComponents[T];
+        // getComponent<T extends keyof EntityComponents>(componentId: T): EntityComponents[T];
     }
-    interface ItemStack {
-        getComponent<T extends keyof ItemComponents>(componentId: T): ItemComponents[T];
-    }
-    interface Enchantment {
-        constructor<T extends keyof CEnchantmentTypes>(
-            enchantmentType: T,
-            level?: number
-        ): CEnchantmentTypes[T];
-    }
-    interface EnchantmentList {
-        getEnchantment<T extends keyof CEnchantmentTypes>(enchantmentType: T): CEnchantmentTypes[T];
-        hasEnchantment<T extends keyof CEnchantmentTypes>(enchantmentType: T): number;
-        removeEnchantment<T extends keyof CEnchantmentTypes>(enchantmentType: T): void;
-    }
+    // interface ItemStack {
+        // getComponent<T extends keyof ItemComponents>(componentId: T): ItemComponents[T];
+    // }
+    // interface Enchantment {
+        // constructor<T extends keyof CEnchantmentTypes>(
+            // enchantmentType: T,
+            // level?: number
+        // ): CEnchantmentTypes[T];
+    // }
+    // interface EnchantmentList {
+        // getEnchantment<T extends keyof CEnchantmentTypes>(enchantmentType: T): CEnchantmentTypes[T];
+        // hasEnchantment<T extends keyof CEnchantmentTypes>(enchantmentType: T): number;
+        // removeEnchantment<T extends keyof CEnchantmentTypes>(enchantmentType: T): void;
+    // }
 }

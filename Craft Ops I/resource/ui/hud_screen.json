@@ -1,25 +1,9 @@
 {
     "namespace": "hud",
     "hud_actionbar_text": {
-        "$tl|default": 40, "$tr|default": 40,
-        "$bl|default": 80, "$br|default": 400,
-        "$cm|default": 200,
-        //
-        "$c_tl|default": "%.$tls", "$c_tr|default": "%.($tl + $tr)s",
-        "$c_bl|default": "%.($tl + $tr + $bl)s", "$c_br|default": "%.($tl + $tr + $bl + $br)s",
-        "$c_c|default": "%.($tl + $tr + $bl + $br + $cm)s",
-        //
-        "$actionbar|default": "$actionbar_text",
-        //
-        "$top_left|default": "($c_tl * $actionbar)",
-        "$top_right|default": "($c_tr * $actionbar) - ($c_tl * $actionbar) - ($actionbar - $c_tr * $actionbar))",
-        "$bottom_right|default": "(($c_bl * $actionbar) - ($c_tr * $actionbar) - ($actionbar - $c_bl * $actionbar))",
-        "$bottom_left|default": "(($c_br * $actionbar) - ($c_bl * $actionbar) - ($actionbar - $c_br * $actionbar))",
-        //
-        "$center|default": "(($c_c * $actionbar) - ($c_br * $actionbar) - ($actionbar - $c_c * $actionbar))",
-        "$rest|default": "(($actionbar) - ($c_c * $actionbar))",
-        //
         "texture": "textures/ui/blank",
+        "$points|default": 370, // for max 8 players
+        "$actionbar|default": "$actionbar_text",
         "anchor_from": "center",
         "anchor_to": "center",
         "size": [
@@ -32,172 +16,334 @@
         ],
         "controls": [
             {
-                "actionbar_text": {
-                    "type": "panel",
-                    "anchor_from": "center",
-                    "anchor_to": "center",
+                "points": {
+                    "type": "image",
+                    "texture": "textures/ui/blank",
                     "size": [
-                        "100%",
-                        "100%"
+                        "100%c + 12px",
+                        "100%c + 5px"
+                    ],
+                    "alpha": 0.5,
+                    "anchor_from": "bottom_right",
+                    "anchor_to": "bottom_right",
+                    "layer": 2,
+                    "controls": [
+                        {
+                            "actionbar_message": {
+                                "type": "label",
+                                "localize": false,
+                                "color": "$tool_tip_text",
+                                "text_alignment": "left",
+                                "text": "(%.($points)s * $actionbar)"
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "actionbar_message": {
+                    "type": "image",
+                    "texture": "textures/ui/hud_tip_text_background",
+                    "size": [
+                        "100%c + 12px",
+                        "100%c + 5px"
                     ],
                     "offset": [
                         0,
-                        0
+                        "50%-68px"
+                    ],
+                    "alpha": 0.5,
+                    "anchor_from": "center",
+                    "anchor_to": "center",
+                    "layer": 2,
+                    "controls": [
+                        {
+                            "actionbar_message": {
+                                "type": "label",
+                                "localize": false,
+                                "color": "$tool_tip_text",
+                                "text_alignment": "center",
+                                "text": "(($actionbar) - (%.($points)s * $actionbar)"
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "hud_title_text": {
+        "type": "stack_panel",
+        "anchor_from": "center",
+        "anchor_to": "center",
+        "size": [
+            "100%",
+            "100%"
+        ],
+        "alpha": 1,
+        "propagate_alpha": false,
+        "offset": [
+            0,
+            0
+        ],
+        "bindings": [
+            {
+                "binding_name": "#hud_title_text_string",
+                "binding_name_override": "#text",
+                "binding_type": "global"
+            }
+        ],
+        "controls": [
+            {
+                "testser@hud.hud_title": {}
+            }
+        ]
+    },
+    "hud_title": {
+        "type": "panel",
+        "size": [
+            "100%",
+            "100%"
+        ],
+        "alpha": 1,
+        "propagate_alpha": false,
+        "offset": [
+            0,
+            0
+        ],
+        "bindings": [
+            {
+                "binding_name": "#hud_title_text_string",
+                "binding_name_override": "#text",
+                "binding_type": "global"
+            }
+        ],
+        "controls": [
+            {
+                "round_display": {
+                    "type": "image",
+                    "anchor_from": "top_left",
+                    "anchor_to": "top_left",
+                    "texture": "textures/ui/hud_tip_text_background", // Placeholder
+                    "size": [
+                        "100%c + 12px",
+                        "100%c + 5px"
+                    ],
+                    "alpha": 0.2,
+                    "controls": [
+                        {
+                            "round_number": {
+                                "type": "stack_panel",
+                                "orientation": "horizontal",
+                                "anchor_from": "top_left",
+                                "anchor_to": "top_left",
+                                "size": [
+                                    "100%c - 16px",
+                                    18
+                                ],
+                                "controls": []
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "perks": {
+                    "type": "stack_panel",
+                    "orientation": "horizontal",
+                    "anchor_from": "bottom_left",
+                    "anchor_to": "bottom_left",
+                    "size": [
+                        "100%c - 16px",
+                        18
                     ],
                     "controls": [
                         {
-                            "actionbar_message_top_left_1": {
-                                "type": "image",
-                                "texture": "textures/ui/blank",
+                            "top_panel": {
+                                "type": "panel",
                                 "size": [
-                                    "100%c + 12px",
-                                    "100%c + 5px"
+                                    "100%c + 3px",
+                                    16
                                 ],
-                                "alpha": 0.5,
-                                "anchor_from": "top_left",
-                                "anchor_to": "top_left",
-                                "layer": 2,
+                                "bindings": [
+                                    {
+                                        "binding_name": "#hud_title_text_string",
+                                        "binding_type": "global"
+                                    },
+                                    {
+                                        "binding_type": "view",
+                                        "source_property_name": "((%.1s * (#hud_title_text_string - (%.10s * #hud_title_text_string))) = '_')",
+                                        "target_property_name": "#visible"
+                                    }
+                                ],
                                 "controls": [
                                     {
-                                        "actionbar_message": {
-                                            "type": "label",
-                                            "localize": false,
-                                            "color": "$tool_tip_text",
-                                            "text_alignment": "left",
-                                            "text": "$top_left" // 1
+                                        "jugger_nog": {
+                                            "type": "image",
+                                            "size": [
+                                                16,
+                                                16
+                                            ],
+                                            "texture": "textures/blocks/diamond_block"
                                         }
                                     }
                                 ]
                             }
                         },
                         {
-                            "actionbar_message_top_right_2": {
-                                "type": "image",
-                                "texture": "textures/ui/blank",
+                            "top_panel": {
+                                "type": "panel",
                                 "size": [
-                                    "100%c + 12px",
-                                    "100%c + 5px"
+                                    "100%c + 2px",
+                                    16
                                 ],
-                                "alpha": 0.5,
-                                "anchor_from": "top_right",
-                                "anchor_to": "top_right",
-                                "layer": 2,
+                                "bindings": [
+                                    {
+                                        "binding_name": "#hud_title_text_string",
+                                        "binding_type": "global"
+                                    },
+                                    {
+                                        "binding_type": "view",
+                                        "source_property_name": "((%.1s * (#hud_title_text_string - (%.11s * #hud_title_text_string))) = '_')",
+                                        "target_property_name": "#visible"
+                                    }
+                                ],
                                 "controls": [
                                     {
-                                        "actionbar_message": {
-                                            "type": "label",
-                                            "localize": false,
-                                            "color": "$tool_tip_text",
-                                            "text_alignment": "right",
-                                            "text": "$top_right" // 2
+                                        "stamin_up": {
+                                            "type": "image",
+                                            "size": [
+                                                16,
+                                                16
+                                            ],
+                                            "texture": "textures/blocks/coal_block"
                                         }
                                     }
                                 ]
                             }
                         },
                         {
-                            "actionbar_message_bottom_left_3": {
-                                "type": "image",
-                                "texture": "textures/ui/blank",
+                            "top_panel": {
+                                "type": "panel",
                                 "size": [
-                                    "100%c + 12px",
-                                    "100%c + 5px"
+                                    "100%c + 2px",
+                                    16
                                 ],
-                                "alpha": 0.5,
-                                "anchor_from": "bottom_left",
-                                "anchor_to": "bottom_left",
-                                "layer": 2,
+                                "bindings": [
+                                    {
+                                        "binding_name": "#hud_title_text_string",
+                                        "binding_type": "global"
+                                    },
+                                    {
+                                        "binding_type": "view",
+                                        "source_property_name": "((%.1s * (#hud_title_text_string - (%.12s * #hud_title_text_string))) = '_')",
+                                        "target_property_name": "#visible"
+                                    }
+                                ],
                                 "controls": [
                                     {
-                                        "actionbar_message": {
-                                            "type": "label",
-                                            "localize": false,
-                                            "color": "$tool_tip_text",
-                                            "text_alignment": "left",
-                                            "text": "$bottom_left" // 3
+                                        "mule_kick": {
+                                            "type": "image",
+                                            "size": [
+                                                16,
+                                                16
+                                            ],
+                                            "texture": "textures/blocks/emerald_block"
                                         }
                                     }
                                 ]
                             }
                         },
                         {
-                            "actionbar_message_bottom_right_4": {
-                                "type": "image",
-                                "texture": "textures/ui/blank",
+                            "top_panel": {
+                                "type": "panel",
                                 "size": [
-                                    "100%c + 12px",
-                                    "100%c + 5px"
+                                    "100%c + 2px",
+                                    16
                                 ],
-                                "alpha": 0.5,
-                                "anchor_from": "bottom_right",
-                                "anchor_to": "bottom_right",
-                                "layer": 2,
+                                "bindings": [
+                                    {
+                                        "binding_name": "#hud_title_text_string",
+                                        "binding_type": "global"
+                                    },
+                                    {
+                                        "binding_type": "view",
+                                        "source_property_name": "((%.1s * (#hud_title_text_string - (%.13s * #hud_title_text_string))) = '_')",
+                                        "target_property_name": "#visible"
+                                    }
+                                ],
                                 "controls": [
                                     {
-                                        "actionbar_message": {
-                                            "type": "label",
-                                            "localize": false,
-                                            "color": "$tool_tip_text",
-                                            "text_alignment": "right",
-                                            "text": "$bottom_right" // 4
+                                        "double_tap": {
+                                            "type": "image",
+                                            "size": [
+                                                16,
+                                                16
+                                            ],
+                                            "texture": "textures/blocks/lapis_block"
                                         }
                                     }
                                 ]
                             }
                         },
                         {
-                            "actionbar_message_center_5": {
-                                "type": "image",
-                                "texture": "textures/ui/hud_tip_text_background",
+                            "top_panel": {
+                                "type": "panel",
                                 "size": [
-                                    "100%c + 12px",
-                                    "100%c + 5px"
+                                    "100%c + 2px",
+                                    16
                                 ],
-                                "offset": [
-                                    0,
-                                    "50%"
+                                "bindings": [
+                                    {
+                                        "binding_name": "#hud_title_text_string",
+                                        "binding_type": "global"
+                                    },
+                                    {
+                                        "binding_type": "view",
+                                        "source_property_name": "((%.1s * (#hud_title_text_string - (%.14s * #hud_title_text_string))) = '_')",
+                                        "target_property_name": "#visible"
+                                    }
                                 ],
-                                "alpha": 0.5,
-                                "anchor_from": "center",
-                                "anchor_to": "center",
-                                "layer": 2,
                                 "controls": [
                                     {
-                                        "actionbar_message": {
-                                            "type": "label",
-                                            "localize": false,
-                                            "color": "$tool_tip_text",
-                                            "text_alignment": "right",
-                                            "text": "$center" // 5
+                                        "quick_revive": {
+                                            "type": "image",
+                                            "size": [
+                                                16,
+                                                16
+                                            ],
+                                            "texture": "textures/blocks/iron_block"
                                         }
                                     }
                                 ]
                             }
                         },
                         {
-                            "actionbar_message_default_6": {
-                                "type": "image",
-                                "texture": "textures/ui/hud_tip_text_background",
+                            "top_panel": {
+                                "type": "panel",
                                 "size": [
-                                    "100%c + 12px",
-                                    "100%c + 5px"
+                                    "100%c + 2px",
+                                    16
                                 ],
-                                "offset": [
-                                    0,
-                                    "50%-68px"
+                                "bindings": [
+                                    {
+                                        "binding_name": "#hud_title_text_string",
+                                        "binding_type": "global"
+                                    },
+                                    {
+                                        "binding_type": "view",
+                                        "source_property_name": "((%.1s * (#hud_title_text_string - (%.15s * #hud_title_text_string))) = '_')",
+                                        "target_property_name": "#visible"
+                                    }
                                 ],
-                                "alpha": 0.5,
-                                "anchor_from": "center",
-                                "anchor_to": "center",
-                                "layer": 2,
                                 "controls": [
                                     {
-                                        "actionbar_message": {
-                                            "type": "label",
-                                            "localize": false,
-                                            "color": "$tool_tip_text",
-                                            "text_alignment": "right",
-                                            "text": "$rest" // 6
+                                        "vulture_aid": {
+                                            "type": "image",
+                                            "size": [
+                                                16,
+                                                16
+                                            ],
+                                            "texture": "textures/blocks/copper_block"
                                         }
                                     }
                                 ]
