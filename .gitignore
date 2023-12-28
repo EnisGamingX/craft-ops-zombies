@@ -10,3 +10,4 @@ package-lock.json
 .prettierrc
 /releases
 /src
+test.js

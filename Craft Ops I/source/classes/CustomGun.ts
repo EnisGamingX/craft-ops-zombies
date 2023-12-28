@@ -1,3 +1,5 @@
+import type { GunTypes, ammo, packapunch, sounds, statNumType, description } from "./GunTypes";
+import type { MolangVariableMap, Player } from "@minecraft/server";
 export default class CustomGun {
     description: description;
     components: components;
@@ -8,52 +10,14 @@ export default class CustomGun {
     }
 }
 
-import type * as mc from "@minecraft/server";
-type Enumerate<N extends number, Acc extends number[] = []> = Acc["length"] extends N
-    ? Acc[number]
-    : Enumerate<N, [...Acc, Acc["length"]]>;
-type IntRange<F extends number, T extends number> = Exclude<Enumerate<T>, Enumerate<F>>;
-
-type statNumType = IntRange<0, 16>;
-export type GunTypes =
-    | "special"
-    | "knife"
-    | "launcher"
-    | "pistol"
-    | "revolver"
-    | "smg"
-    | "shotgun"
-    | "ar"
-    | "lmg"
-    | "sniper";
-
-export interface description {
-    name: string;
-    typeId: string;
-    gunType: GunTypes;
-}
+//! ///////////////////////////////////////////////////////////////////////////////////////////
 
 export interface components {
-    customData(player: mc.Player): void;
+    customData(player: Player): void;
     firerate: statNumType;
 
     pap: packapunch | false;
     sounds: sounds;
-    particle?: string | mc.MolangVariableMap | false;
+    particle?: string | MolangVariableMap | false;
     ammo?: ammo | false;
-}
-
-export interface packapunch {
-    papGun: string,
-}
-
-export interface ammo {
-    reloadSpeed?: statNumType;
-    magSize?: number;
-    bullets?: number;
-}
-
-export interface sounds {
-    shoot: string;
-    reload?: string;
 }

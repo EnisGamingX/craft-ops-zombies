@@ -8,6 +8,8 @@ system.beforeEvents.watchdogTerminate.subscribe((data) => {
     }
 });
 
+import "./modules/lobbyEvents/index.js";
+// import "./modules/gameEvents/index.js";
 import "./modules/runState";
 
 // import "./events/initializePlayer.js";

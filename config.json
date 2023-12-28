@@ -8,14 +8,23 @@
 	},
 	"regolith": {
 		"dataPath": "./packs/data",
-		"filterDefinitions": {},
+		"filterDefinitions": {
+			"tsc-build": {
+				"runWith": "shell",
+				"command": "\"./node_modules/typescript/bin/tsc\" --project ../../tsconfig.json"
+			}
+		},
 		"profiles": {
 			"default": {
 				"export": {
 					"readOnly": false,
 					"target": "development"
 				},
-				"filters": []
+				"filters": [
+					{
+						"filter": "tsc-build"
+					}
+				]
 			}
 		}
 	}

@@ -2,7 +2,7 @@ import * as mc from "@minecraft/server";
 import type { EntityComponents } from "./entityComponents";
 import type { EntityDynamicProperties, WorldDynamicProperties } from "./dynamicProps";
 import type { ItemComponents, CEnchantmentTypes } from "./itemComponents";
-import { perkList } from "../modules/components";
+import { perkList, perks } from "./globalTypes";
 
 Object.defineProperty(mc.Player.prototype, "zm", {
     get: function () {
@@ -39,14 +39,14 @@ Object.defineProperty(mc.Player.prototype, "zm", {
             addPerks(value: string | string[]) {
                 if (Array.isArray(value)) {
                     value.forEach((perk) => {
-                        if (perkList.includes(perk)) {
+                        if (perkList.includes(perk as perks)) {
                             player.setDynamicProperty(perk, true);
                         } else {
                             console.error("could not find perk: " + perk);
                         }
                     });
                 } else {
-                    if (perkList.includes(value)) {
+                    if (perkList.includes(value as perks)) {
                         player.setDynamicProperty(value, true);
                     } else {
                         console.error("could not find perk: " + value);

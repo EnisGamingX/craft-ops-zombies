@@ -1,4 +1,5 @@
 {
+    "$schema":"https://kalmemarq.github.io/Bugrock-JSON-UI-Schemas/ui.schema.json",
     "namespace": "hud",
     "hud_actionbar_text": {
         "texture": "textures/ui/blank",
@@ -98,6 +99,106 @@
             }
         ]
     },
+    "round_image": {
+        "type": "image",
+        "$image|default": "zero",
+        "texture": "('textures/ui/numbers/' + $image)",
+        "size": [
+            16,
+            16
+        ],
+        "$letter|default": "a",
+        "$which|default": 0,
+        "bindings": [
+            {
+                "binding_name": "#hud_title_text_string",
+                "binding_type": "global"
+            },
+            {
+                "binding_type": "view",
+                "source_property_name": "(((%.2s * (#hud_title_text_string - (('%.' + ($which * 2) + 's') * #hud_title_text_string))) - '-' - '.' - '#') = $letter)",
+                "target_property_name": "#visible"
+            }
+        ]
+    },
+    "NumbersPanel": {
+        "type": "panel",
+        "size": [
+            "100%c",
+            16
+        ],
+        "$num|default": 0,
+        "controls": [
+            {
+                "firstNum@hud.round_image": {
+                    "$which": "$num"
+                }
+            },
+            {
+                "secondNum@hud.round_image": {
+                    "$which": "$num",
+                    "$letter": "b",
+                    "$image": "one"
+                }
+            },
+            {
+                "thirdNum@hud.round_image": {
+                    "$which": "$num",
+                    "$letter": "c",
+                    "$image": "two"
+                }
+            },
+            {
+                "firstNum@hud.round_image": {
+                    "$which": "$num",
+                    "$letter": "d",
+                    "$image": "three"
+                }
+            },
+            {
+                "firstNum@hud.round_image": {
+                    "$which": "$num",
+                    "$letter": "e",
+                    "$image": "four"
+                }
+            },
+            {
+                "firstNum@hud.round_image": {
+                    "$which": "$num",
+                    "$letter": "f",
+                    "$image": "five"
+                }
+            },
+            {
+                "firstNum@hud.round_image": {
+                    "$which": "$num",
+                    "$letter": "g",
+                    "$image": "six"
+                }
+            },
+            {
+                "firstNum@hud.round_image": {
+                    "$which": "$num",
+                    "$letter": "h",
+                    "$image": "seven"
+                }
+            },
+            {
+                "firstNum@hud.round_image": {
+                    "$which": "$num",
+                    "$letter": "i",
+                    "$image": "eight"
+                }
+            },
+            {
+                "firstNum@hud.round_image": {
+                    "$which": "$num",
+                    "$letter": "j",
+                    "$image": "nine"
+                }
+            }
+        ]
+    },
     "hud_title": {
         "type": "panel",
         "size": [
@@ -123,24 +224,42 @@
                     "type": "image",
                     "anchor_from": "top_left",
                     "anchor_to": "top_left",
-                    "texture": "textures/ui/hud_tip_text_background", // Placeholder
-                    "size": [
-                        "100%c + 12px",
-                        "100%c + 5px"
+                    "offset": [
+                        -2,
+                        2
                     ],
-                    "alpha": 0.2,
+                    "texture": "textures/ui/round_bg", // Placeholder
+                    "size": [
+                        75,
+                        25
+                    ],
+                    "alpha": 1,
                     "controls": [
                         {
                             "round_number": {
                                 "type": "stack_panel",
                                 "orientation": "horizontal",
-                                "anchor_from": "top_left",
-                                "anchor_to": "top_left",
+                                "anchor_from": "center",
+                                "anchor_to": "center",
                                 "size": [
-                                    "100%c - 16px",
-                                    18
+                                    "100%c",
+                                    16
                                 ],
-                                "controls": []
+                                "controls": [
+                                    {
+                                        "firstNum@hud.NumbersPanel": {}
+                                    },
+                                    {
+                                        "second@hud.NumbersPanel": {
+                                            "$num": 1
+                                        }
+                                    },
+                                    {
+                                        "third@hud.NumbersPanel": {
+                                            "$num": 2
+                                        }
+                                    }
+                                ]
                             }
                         }
                     ]
@@ -171,7 +290,7 @@
                                     },
                                     {
                                         "binding_type": "view",
-                                        "source_property_name": "((%.1s * (#hud_title_text_string - (%.10s * #hud_title_text_string))) = '_')",
+                                        "source_property_name": "((%.1s * (#hud_title_text_string - (%.6s * #hud_title_text_string))) = '_')",
                                         "target_property_name": "#visible"
                                     }
                                 ],
@@ -203,7 +322,7 @@
                                     },
                                     {
                                         "binding_type": "view",
-                                        "source_property_name": "((%.1s * (#hud_title_text_string - (%.11s * #hud_title_text_string))) = '_')",
+                                        "source_property_name": "((%.1s * (#hud_title_text_string - (%.6s * #hud_title_text_string))) = '_')",
                                         "target_property_name": "#visible"
                                     }
                                 ],
@@ -235,7 +354,7 @@
                                     },
                                     {
                                         "binding_type": "view",
-                                        "source_property_name": "((%.1s * (#hud_title_text_string - (%.12s * #hud_title_text_string))) = '_')",
+                                        "source_property_name": "((%.1s * (#hud_title_text_string - (%.7s * #hud_title_text_string))) = '_')",
                                         "target_property_name": "#visible"
                                     }
                                 ],
@@ -267,7 +386,7 @@
                                     },
                                     {
                                         "binding_type": "view",
-                                        "source_property_name": "((%.1s * (#hud_title_text_string - (%.13s * #hud_title_text_string))) = '_')",
+                                        "source_property_name": "((%.1s * (#hud_title_text_string - (%.8s * #hud_title_text_string))) = '_')",
                                         "target_property_name": "#visible"
                                     }
                                 ],
@@ -299,7 +418,7 @@
                                     },
                                     {
                                         "binding_type": "view",
-                                        "source_property_name": "((%.1s * (#hud_title_text_string - (%.14s * #hud_title_text_string))) = '_')",
+                                        "source_property_name": "((%.1s * (#hud_title_text_string - (%.9s * #hud_title_text_string))) = '_')",
                                         "target_property_name": "#visible"
                                     }
                                 ],
@@ -331,7 +450,7 @@
                                     },
                                     {
                                         "binding_type": "view",
-                                        "source_property_name": "((%.1s * (#hud_title_text_string - (%.15s * #hud_title_text_string))) = '_')",
+                                        "source_property_name": "((%.1s * (#hud_title_text_string - (%.10s * #hud_title_text_string))) = '_')",
                                         "target_property_name": "#visible"
                                     }
                                 ],

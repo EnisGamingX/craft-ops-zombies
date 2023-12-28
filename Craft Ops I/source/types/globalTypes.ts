@@ -6,16 +6,20 @@ export interface GameData {
 }
 
 export type maps = "nacht";
-export type perks =
-    | "jugger_nog"
-    | "stamin_up"
-    | "mule_kick"
-    | "double_tap"
-    | "quick_revive"
-    | "vulture_aid";
+export const perkList = [
+    "jugger_nog",
+    "stamin_up",
+    "mule_kick",
+    "double_tap",
+    "quick_revive",
+    "vulture_aid",
+] as const;
+export type perks = typeof perkList[number]
 
 export interface PlayerData {
     [pid: string]: {
+        points: number;
+        playerNum: number;
         perks: perks[];
         isAlive: boolean;
         inGame: boolean;

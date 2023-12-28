@@ -15,4 +15,4 @@ system.runInterval(() => {
             default: CurrentGameState = lobbyLoop({player}); break;
         }
     }
-});
+}, 20);
