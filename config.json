@@ -7,11 +7,11 @@
 		"resourcePack": "./Craft Ops I/resource"
 	},
 	"regolith": {
-		"dataPath": "./packs/data",
+		"dataPath": "./Craft Ops I/source",
 		"filterDefinitions": {
 			"tsc-build": {
 				"runWith": "shell",
-				"command": "\"./node_modules/typescript/bin/tsc\" --project ../../tsconfig.json"
+				"command": "node \"G:/Desktop/Minecraft Modding/Bedrock/_____Public Addons_____/craft-ops-zombies/node_modules/typescript/bin/tsc\" --project ../../tsconfig.json"
 			}
 		},
 		"profiles": {
