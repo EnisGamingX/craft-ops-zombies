@@ -5,7 +5,6 @@
     "module": "ES2022",
     "rootDir": "./Craft Ops I/source",
     "outDir": "./.regolith/tmp/BP/scripts/",
-    // "outDir": "./Craft Ops I/behavior/scripts/",
     "moduleResolution": "Node",
     "paths": {
       "@minecraft/server": [
@@ -25,7 +24,7 @@
     "allowJs": false,
     "declaration": false,
     "sourceMap": false,
-    "removeComments": true,
+    "removeComments": false,
     "forceConsistentCasingInFileNames": false,
     "noImplicitAny": false,
     "skipLibCheck": false,
