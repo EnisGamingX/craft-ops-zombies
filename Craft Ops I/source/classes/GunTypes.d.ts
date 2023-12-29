@@ -13,10 +13,6 @@ export interface description {
 
 export type statNumType = IntRange<0, 16>;
 
-export interface packapunch {
-    papGun: string,
-}
-
 export interface ammo {
     reloadSpeed?: statNumType;
     magSize?: number;
